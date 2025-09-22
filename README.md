@@ -6,8 +6,6 @@ This project is a browser-based game built with **p5.js**, featuring two classic
 
 The project is designed to demonstrate interactive graphics, game state management, and UI handling in JavaScript.
 
----
-
 ## ✨ Features
 - 🎮 Two games in one: Paddle + Dice  
 - 🎲 Dice Game:
@@ -19,8 +17,6 @@ The project is designed to demonstrate interactive graphics, game state manageme
   - Countdown start timer  
   - Smooth paddle movement  
   - Score tracking and survival challenge  
-
----
 
 ## 🎮 How to Play
 
@@ -41,5 +37,22 @@ The project is designed to demonstrate interactive graphics, game state manageme
 You can play the game directly on OpenProcessing here:  
 👉 [Play on OpenProcessing](https://openprocessing.org/sketch/2731246)  
 
-### 💻 Run Locally
-If you want to run the project on your computer:  
+## 🤝 Contributing
+Contributions are welcome!  
+If you’d like to improve the games, fix bugs, or add new features:
+1. Fork the repository.  
+2. Create a new branch (`git checkout -b feature-name`).  
+3. Commit your changes (`git commit -m "Add new feature"`).  
+4. Push to the branch (`git push origin feature-name`).  
+5. Open a Pull Request.  
+
+## 🛠️ Future Updates / Roadmap
+- 🎮 Add more mini-games  
+- 🎲 Expand dice game with new betting modes  
+- 🧮 Include different math challenge types  
+- 💾 Cloud save system (beyond local storage)  
+- 📊 Leaderboard for high scores  
+
+## 📜 License
+This project is licensed under the [MIT License](LICENSE).  
+You are free to use, modify, and distribute it with attribution.
