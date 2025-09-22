@@ -15,12 +15,10 @@ The project is designed to demonstrate interactive graphics, game state manageme
   - Betting system with customizable stakes  
   - Bonus math challenges for extra rewards  
   - Background customization  
-  - Save & load game progress  
 - 🏓 Paddle Game:
   - Countdown start timer  
   - Smooth paddle movement  
   - Score tracking and survival challenge  
-- 📊 Game state management (switching between modes, saving progress)  
 
 ---
 
@@ -35,5 +33,13 @@ The project is designed to demonstrate interactive graphics, game state manageme
 1. Place your bet before the roll.  
 2. Roll the dice (or let auto-roll do the work).  
 3. Guess if the outcome will be high or low.  
-4. Answer bonus math questions to earn extra coins.  
-5. Save your progress anytime and load it later to continue.  
+4. Answer bonus math questions to earn extra.  
+
+## 🚀 Installation & Running
+
+### ▶️ Play Online
+You can play the game directly on OpenProcessing here:  
+👉 [Play on OpenProcessing](https://openprocessing.org/sketch/2731246)  
+
+### 💻 Run Locally
+If you want to run the project on your computer:  
