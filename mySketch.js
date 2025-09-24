@@ -116,6 +116,7 @@ function setup() {
 	//dice
 	generateMathQuestion();
 	game.lastTick = millis(); // Initialize countdown timer	
+	loadDiceGame()	//load and save
 }
 
 function draw() {
@@ -708,6 +709,32 @@ function drawMenu() {
 		text(`Next roll in: ${game.timer}s`, width / 2, 120);
 	}
 
+// 🔹 Save current game state
+		function saveDiceGame() {
+			let saveData = {
+				balance: game.balance,
+				betAmount: game.betAmount,
+				backgroundColor: game.backgroundColor,
+				ownedBackgrounds: game.ownedBackgrounds,
+				history: game.history
+			};
+			storeItem("diceGameSave", saveData);
+			game.result = "Game saved!";
+		}
+
+	// 🔹 Load saved game state
+		function loadDiceGame() {
+			let saveData = getItem("diceGameSave");
+			if (saveData) {
+				game.balance = saveData.balance ?? INITIAL_BALANCE;
+				game.betAmount = saveData.betAmount ?? MIN_BET;
+				game.backgroundColor = saveData.backgroundColor ?? [0, 100, 0];
+				game.ownedBackgrounds = saveData.ownedBackgrounds ?? {basic:true,standard:false,premier:false,firstClass:false};
+				game.history = saveData.history ?? [];
+				game.result = "Game loaded!";
+			}
+		}
+
 //all buttons
 	// Button drawing helper
 	function drawButton(x, y, w, h, label, bgColor, size = 24) {
@@ -725,6 +752,7 @@ function drawMenu() {
 		drawButton(125, 100, 250, 50, "Solve questions for money", color(255, 215, 0), 16);
 		drawButton(125, 40, 250, 50, "Open Background Market", color(70, 70, 200), 16);
 		drawButton(width - 40, 40, 70, 50, "Home", color(70, 70, 200), 16);
+		drawButton(width - 40, 100, 70, 50, "Save", color(200, 100, 0), 16);
 	}
 
 	function drawBetButtons() {
@@ -736,12 +764,12 @@ function drawMenu() {
 			drawButton(width / 2, height - 50, 200, 60, `BET $${game.betAmount}`, btnColor);
 		}
 
-		drawButton(width / 2 - 150, height - 225, 50, 40, "-", color(100));
-		drawButton(width / 2 + 150, height - 225, 50, 40, "+", color(100));
+		drawButton(width / 2 - 150, height - 175, 50, 40, "-", color(100));
+		drawButton(width / 2 + 150, height - 175, 50, 40, "+", color(100));
 		fill(255);
 		text(`$${game.betAmount}`, width / 2, height - 220);
 		
-		drawButton(width / 2, height - 280, 120, 40, "All-in", color(255, 165, 0), 18);
+		drawButton(width / 2, height - 230, 120, 40, "All-in", color(255, 165, 0), 18);
 	}
 
 function mousePressed() {
@@ -867,7 +895,7 @@ function mousePressed() {
 			}
 
 			// Home button
-			if (mouseInRect(width - 80, 10, 70, 50)) {
+			if (mouseInRect(width - 80, 0, 70, 50)) {
 				gameState = "menu";
 			}
 			
@@ -885,11 +913,11 @@ function mousePressed() {
 				}
 
 				// Adjust bet
-				if (mouseInRect(width / 2 - 180, height - 250, 50, 40)) {
+				if (mouseInRect(width / 2 - 180, height - 200, 50, 40)) {
 					game.betAmount = max(1, game.betAmount - 10);
 					return true;
 				}
-				if (mouseInRect(width / 2 + 120, height - 250, 50, 40)) {
+				if (mouseInRect(width / 2 + 120, height - 200, 50, 40)) {
 					game.betAmount += 10;
 					return true;
 				}
@@ -902,7 +930,7 @@ function mousePressed() {
 				}
 
 				// All-in
-				if (mouseInRect(width / 2 - 120, height - 300, 240, 40)) {
+				if (mouseInRect(width / 2 - 120, height - 250, 240, 40)) {
 					//width / 2, height - 280, 120, 40
 					game.betAmount = game.balance;
 					return true;
@@ -918,6 +946,12 @@ function mousePressed() {
 				if (mouseInRect(width - 110, 40, 70, 50)) {
 						gameState="menu"
 					}
+			
+				//save game
+				if (mouseInRect(width - 80, 60, 70, 60)) {
+					saveDiceGame();
+					return true;
+				}
 				
 				return false;
 			}	
