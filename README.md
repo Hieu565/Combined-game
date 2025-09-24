@@ -12,7 +12,8 @@ The project is designed to demonstrate interactive graphics, game state manageme
   - Auto-rolling system  
   - Betting system with customizable stakes  
   - Bonus math challenges for extra rewards  
-  - Background customization  
+  - Background customization
+  - Save game process
 - 🏓 Paddle Game:
   - Countdown start timer  
   - Smooth paddle movement  
@@ -51,7 +52,8 @@ If you’d like to improve the games, fix bugs, or add new features:
 - 🎲 Expand dice game with new betting modes  
 - 🧮 Include different math challenge types  
 - 💾 Cloud save system (beyond local storage)  
-- 📊 Leaderboard for high scores  
+- 📊 Leaderboard for high scores
+- 📐 Scaling for different screen size
 
 ## 📜 License
 This project is licensed under the [MIT License](LICENSE).  
